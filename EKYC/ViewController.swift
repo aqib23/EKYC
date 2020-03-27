@@ -30,6 +30,7 @@ class ViewController: UIViewController, PassImage {
         if #available(iOS 13.0, *) {
             overrideUserInterfaceStyle = .light
         }
+        self.pushToNidInfo(dict: [:])
     }
 
     func passImage(image: UIImage) {
