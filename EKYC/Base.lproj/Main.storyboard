@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gmT-Pw-Kna">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -35,7 +35,7 @@
                                     <color key="titleColor" red="0.1137254902" green="0.1019607843" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="wlm-vD-Abk" kind="presentation" modalPresentationStyle="fullScreen" id="7pr-E9-PXD"/>
+                                    <segue destination="wlm-vD-Abk" kind="presentation" identifier="photo" modalPresentationStyle="fullScreen" id="7pr-E9-PXD"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -52,10 +52,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Hox-gv-dWk"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="158" y="117"/>
+            <point key="canvasLocation" x="1068.1159420289855" y="116.51785714285714"/>
         </scene>
         <!--Camera View Controller-->
         <scene sceneID="o9a-gu-7EI">
@@ -135,10 +136,441 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xt2-1C-BF1" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="867" y="117"/>
+            <point key="canvasLocation" x="1776.8115942028987" y="116.51785714285714"/>
+        </scene>
+        <!--NidDetailViewController-->
+        <scene sceneID="wkp-0r-WYH">
+            <objects>
+                <viewController storyboardIdentifier="NidDetailViewController" title="NidDetailViewController" id="jEw-iR-jaS" customClass="NidDetailViewController" customModule="EKYC" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ddb-YS-fU0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G2Q-RE-CIQ">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XaF-6e-OPJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wCp-Pn-yXs">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verify NID Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZwB-bI-9Hg">
+                                                        <rect key="frame" x="139" y="14.5" width="136.5" height="26.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hmp-sq-mtE">
+                                                        <rect key="frame" x="0.0" y="53" width="414" height="2"/>
+                                                        <color key="backgroundColor" red="0.33725490196078434" green="0.7803921568627451" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="2" id="Dvc-R7-Cyz"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBo-xE-gWu">
+                                                        <rect key="frame" x="20" y="12.5" width="30" height="30"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="30" id="Cnx-Iv-SYd"/>
+                                                            <constraint firstAttribute="height" constant="30" id="qTn-MU-kit"/>
+                                                        </constraints>
+                                                        <state key="normal" backgroundImage="backBtn"/>
+                                                        <connections>
+                                                            <action selector="bacBtnSeledctor:" destination="jEw-iR-jaS" eventType="touchUpInside" id="eEN-ah-PCl"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="ZwB-bI-9Hg" firstAttribute="centerX" secondItem="wCp-Pn-yXs" secondAttribute="centerX" id="3vM-gV-0fy"/>
+                                                    <constraint firstAttribute="bottom" secondItem="hmp-sq-mtE" secondAttribute="bottom" id="Bh8-Iu-nuA"/>
+                                                    <constraint firstAttribute="height" constant="55" id="F6i-LM-JgZ"/>
+                                                    <constraint firstItem="ZwB-bI-9Hg" firstAttribute="centerY" secondItem="wCp-Pn-yXs" secondAttribute="centerY" id="O7a-QK-JhH"/>
+                                                    <constraint firstItem="hBo-xE-gWu" firstAttribute="leading" secondItem="wCp-Pn-yXs" secondAttribute="leading" constant="20" id="RVc-z2-BVi"/>
+                                                    <constraint firstAttribute="trailing" secondItem="hmp-sq-mtE" secondAttribute="trailing" id="bAi-xo-zz2"/>
+                                                    <constraint firstItem="hmp-sq-mtE" firstAttribute="leading" secondItem="wCp-Pn-yXs" secondAttribute="leading" id="byU-oG-hYJ"/>
+                                                    <constraint firstItem="hBo-xE-gWu" firstAttribute="centerY" secondItem="wCp-Pn-yXs" secondAttribute="centerY" id="cwc-vG-hiD"/>
+                                                </constraints>
+                                            </view>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xg5-dI-pJd" customClass="TweeActiveTextField" customModule="EKYC" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="105" width="374" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="LYe-2K-Md6"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="tweePlaceholder" value="Applicant's Name"/>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="activeLineColor">
+                                                        <color key="value" red="0.33725490200000002" green="0.78039215689999997" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="activeLineWidth">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                                                        <real key="value" value="3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                        <color key="value" red="0.33725490200000002" green="0.78039215689999997" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XJ7-hY-2CO" customClass="TweeActiveTextField" customModule="EKYC" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="195" width="374" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="sez-3c-NtE"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="tweePlaceholder" value="Mother's Name"/>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="activeLineColor">
+                                                        <color key="value" red="0.33725490200000002" green="0.78039215689999997" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="activeLineWidth">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                                                        <real key="value" value="3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                        <color key="value" red="0.33725490200000002" green="0.78039215689999997" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QvQ-ql-ZhW" customClass="TweeActiveTextField" customModule="EKYC" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="285" width="374" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="WIs-Mb-p9d"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="tweePlaceholder" value="Father's Name"/>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="activeLineColor">
+                                                        <color key="value" red="0.33725490200000002" green="0.78039215689999997" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="activeLineWidth">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                                                        <real key="value" value="3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                        <color key="value" red="0.33725490200000002" green="0.78039215689999997" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vne-hV-fKT" customClass="TweeActiveTextField" customModule="EKYC" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="375" width="374" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="aux-SR-El7"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="tweePlaceholder" value="Spouse Name"/>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="activeLineColor">
+                                                        <color key="value" red="0.33725490200000002" green="0.78039215689999997" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="activeLineWidth">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                                                        <real key="value" value="3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                        <color key="value" red="0.33725490200000002" green="0.78039215689999997" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bXh-dZ-eBZ" customClass="TweeActiveTextField" customModule="EKYC" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="465" width="374" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="OGy-v9-v6I"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="tweePlaceholder" value="Gender (M/F/T)"/>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="activeLineColor">
+                                                        <color key="value" red="0.33725490200000002" green="0.78039215689999997" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="activeLineWidth">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                                                        <real key="value" value="3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                        <color key="value" red="0.33725490200000002" green="0.78039215689999997" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BqH-aM-fLD" customClass="TweeActiveTextField" customModule="EKYC" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="555" width="374" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="o5E-kR-hOe"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="tweePlaceholder" value="Profession"/>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="activeLineColor">
+                                                        <color key="value" red="0.33725490200000002" green="0.78039215689999997" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="activeLineWidth">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                                                        <real key="value" value="3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                        <color key="value" red="0.33725490200000002" green="0.78039215689999997" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kRv-pT-Ml1" customClass="TweeActiveTextField" customModule="EKYC" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="645" width="374" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="aTh-9L-h1s"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="tweePlaceholder" value="Mobile Phone Number"/>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="activeLineColor">
+                                                        <color key="value" red="0.33725490200000002" green="0.78039215689999997" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="activeLineWidth">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                                                        <real key="value" value="3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                        <color key="value" red="0.33725490200000002" green="0.78039215689999997" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UhN-co-IxR" customClass="TweeActiveTextField" customModule="EKYC" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="735" width="374" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="f6O-Gp-kBN"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="tweePlaceholder" value="Present Address"/>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="activeLineColor">
+                                                        <color key="value" red="0.33725490200000002" green="0.78039215689999997" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="activeLineWidth">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                                                        <real key="value" value="3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                        <color key="value" red="0.33725490200000002" green="0.78039215689999997" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Sa-Pt-og3" customClass="TweeActiveTextField" customModule="EKYC" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="825" width="374" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="pgo-lP-Sfl"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="tweePlaceholder" value="Permanent Address"/>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="activeLineColor">
+                                                        <color key="value" red="0.33725490200000002" green="0.78039215689999997" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="activeLineWidth">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                                                        <real key="value" value="3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                        <color key="value" red="0.33725490200000002" green="0.78039215689999997" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vwd-rj-U4A" customClass="TweeActiveTextField" customModule="EKYC" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="915" width="374" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="2x1-B3-pjf"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="tweePlaceholder" value="Nominee"/>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="activeLineColor">
+                                                        <color key="value" red="0.33725490200000002" green="0.78039215689999997" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="activeLineWidth">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                                                        <real key="value" value="3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                        <color key="value" red="0.33725490200000002" green="0.78039215689999997" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zeN-Uu-Kw1" customClass="TweeActiveTextField" customModule="EKYC" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="1005" width="374" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="iSB-66-KHJ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="tweePlaceholder" value="Relation with Nominee"/>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="activeLineColor">
+                                                        <color key="value" red="0.33725490200000002" green="0.78039215689999997" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="activeLineWidth">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                                                        <real key="value" value="3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                        <color key="value" red="0.33725490200000002" green="0.78039215689999997" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step-2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iy7-bM-3GS">
+                                                <rect key="frame" x="327" y="75" width="67" height="27"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <color key="textColor" red="0.1137254902" green="0.1019607843" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uSh-Kc-8vf">
+                                                <rect key="frame" x="50" y="1095" width="314" height="50"/>
+                                                <color key="backgroundColor" red="0.33725490200000002" green="0.78039215689999997" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="6ez-dK-4r0"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <state key="normal" title="Confirm">
+                                                    <color key="titleColor" red="0.1137254902" green="0.1019607843" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="confirmSelector:" destination="jEw-iR-jaS" eventType="touchUpInside" id="c53-DY-Xkd"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="BqH-aM-fLD" firstAttribute="top" secondItem="bXh-dZ-eBZ" secondAttribute="bottom" constant="40" id="17c-QL-wZs"/>
+                                            <constraint firstItem="zeN-Uu-Kw1" firstAttribute="leading" secondItem="XaF-6e-OPJ" secondAttribute="leading" constant="20" id="1GT-Hb-tNy"/>
+                                            <constraint firstItem="zeN-Uu-Kw1" firstAttribute="top" secondItem="vwd-rj-U4A" secondAttribute="bottom" constant="40" id="2oz-cr-3S8"/>
+                                            <constraint firstAttribute="trailing" secondItem="bXh-dZ-eBZ" secondAttribute="trailing" constant="20" id="8O6-C4-Gdv"/>
+                                            <constraint firstAttribute="trailing" secondItem="XJ7-hY-2CO" secondAttribute="trailing" constant="20" id="Aw3-mi-tSE"/>
+                                            <constraint firstItem="wCp-Pn-yXs" firstAttribute="top" secondItem="XaF-6e-OPJ" secondAttribute="top" id="CNU-u3-Nfb"/>
+                                            <constraint firstItem="wCp-Pn-yXs" firstAttribute="leading" secondItem="XaF-6e-OPJ" secondAttribute="leading" id="Epp-gx-M4r"/>
+                                            <constraint firstAttribute="trailing" secondItem="Vne-hV-fKT" secondAttribute="trailing" constant="20" id="EzR-ka-RRy"/>
+                                            <constraint firstItem="Xg5-dI-pJd" firstAttribute="top" secondItem="wCp-Pn-yXs" secondAttribute="bottom" constant="50" id="HEy-cI-JXA"/>
+                                            <constraint firstItem="Xg5-dI-pJd" firstAttribute="leading" secondItem="XaF-6e-OPJ" secondAttribute="leading" constant="20" id="IOK-30-ZvJ"/>
+                                            <constraint firstItem="vwd-rj-U4A" firstAttribute="top" secondItem="6Sa-Pt-og3" secondAttribute="bottom" constant="40" id="Kz0-yc-84k"/>
+                                            <constraint firstAttribute="trailing" secondItem="kRv-pT-Ml1" secondAttribute="trailing" constant="20" id="MJW-Wt-zLt"/>
+                                            <constraint firstAttribute="trailing" secondItem="6Sa-Pt-og3" secondAttribute="trailing" constant="20" id="NYg-Us-2ym"/>
+                                            <constraint firstAttribute="trailing" secondItem="zeN-Uu-Kw1" secondAttribute="trailing" constant="20" id="Ozi-YN-NbT"/>
+                                            <constraint firstAttribute="trailing" secondItem="UhN-co-IxR" secondAttribute="trailing" constant="20" id="PkQ-ui-l0j"/>
+                                            <constraint firstAttribute="trailing" secondItem="uSh-Kc-8vf" secondAttribute="trailing" constant="50" id="TYA-kV-jcC"/>
+                                            <constraint firstAttribute="trailing" secondItem="BqH-aM-fLD" secondAttribute="trailing" constant="20" id="WjZ-SA-E5h"/>
+                                            <constraint firstItem="XJ7-hY-2CO" firstAttribute="leading" secondItem="XaF-6e-OPJ" secondAttribute="leading" constant="20" id="YeH-AJ-ktI"/>
+                                            <constraint firstItem="uSh-Kc-8vf" firstAttribute="leading" secondItem="XaF-6e-OPJ" secondAttribute="leading" constant="50" id="Zgp-BA-TcD"/>
+                                            <constraint firstAttribute="trailing" secondItem="iy7-bM-3GS" secondAttribute="trailing" constant="20" id="a3e-2c-zei"/>
+                                            <constraint firstAttribute="trailing" secondItem="wCp-Pn-yXs" secondAttribute="trailing" id="aaN-pc-taK"/>
+                                            <constraint firstItem="Vne-hV-fKT" firstAttribute="top" secondItem="QvQ-ql-ZhW" secondAttribute="bottom" constant="40" id="bzk-Yb-niq"/>
+                                            <constraint firstItem="UhN-co-IxR" firstAttribute="top" secondItem="kRv-pT-Ml1" secondAttribute="bottom" constant="40" id="cnD-2N-LL9"/>
+                                            <constraint firstAttribute="bottom" secondItem="uSh-Kc-8vf" secondAttribute="bottom" constant="55" id="dEk-7O-0hj"/>
+                                            <constraint firstItem="6Sa-Pt-og3" firstAttribute="leading" secondItem="XaF-6e-OPJ" secondAttribute="leading" constant="20" id="dMk-ox-ECs"/>
+                                            <constraint firstAttribute="trailing" secondItem="vwd-rj-U4A" secondAttribute="trailing" constant="20" id="g4I-Yj-85I"/>
+                                            <constraint firstItem="iy7-bM-3GS" firstAttribute="top" secondItem="wCp-Pn-yXs" secondAttribute="bottom" constant="20" id="gEa-1R-dni"/>
+                                            <constraint firstItem="QvQ-ql-ZhW" firstAttribute="top" secondItem="XJ7-hY-2CO" secondAttribute="bottom" constant="40" id="gLh-JD-vV5"/>
+                                            <constraint firstItem="UhN-co-IxR" firstAttribute="leading" secondItem="XaF-6e-OPJ" secondAttribute="leading" constant="20" id="hTZ-gn-Sji"/>
+                                            <constraint firstItem="bXh-dZ-eBZ" firstAttribute="leading" secondItem="XaF-6e-OPJ" secondAttribute="leading" constant="20" id="hdX-TD-zrG"/>
+                                            <constraint firstItem="XJ7-hY-2CO" firstAttribute="top" secondItem="Xg5-dI-pJd" secondAttribute="bottom" constant="40" id="igE-Wb-gy0"/>
+                                            <constraint firstItem="kRv-pT-Ml1" firstAttribute="top" secondItem="BqH-aM-fLD" secondAttribute="bottom" constant="40" id="jgC-zu-sBF"/>
+                                            <constraint firstItem="QvQ-ql-ZhW" firstAttribute="leading" secondItem="XaF-6e-OPJ" secondAttribute="leading" constant="20" id="lcl-Af-5GP"/>
+                                            <constraint firstItem="BqH-aM-fLD" firstAttribute="leading" secondItem="XaF-6e-OPJ" secondAttribute="leading" constant="20" id="oFz-u2-rVG"/>
+                                            <constraint firstItem="vwd-rj-U4A" firstAttribute="leading" secondItem="XaF-6e-OPJ" secondAttribute="leading" constant="20" id="p6m-ib-IV3"/>
+                                            <constraint firstItem="bXh-dZ-eBZ" firstAttribute="top" secondItem="Vne-hV-fKT" secondAttribute="bottom" constant="40" id="sgk-Vd-3l5"/>
+                                            <constraint firstItem="6Sa-Pt-og3" firstAttribute="top" secondItem="UhN-co-IxR" secondAttribute="bottom" constant="40" id="ttP-fl-HRf"/>
+                                            <constraint firstAttribute="trailing" secondItem="QvQ-ql-ZhW" secondAttribute="trailing" constant="20" id="vjS-MK-r2C"/>
+                                            <constraint firstItem="kRv-pT-Ml1" firstAttribute="leading" secondItem="XaF-6e-OPJ" secondAttribute="leading" constant="20" id="wIH-Jh-blC"/>
+                                            <constraint firstAttribute="trailing" secondItem="Xg5-dI-pJd" secondAttribute="trailing" constant="20" id="y8d-7r-92T"/>
+                                            <constraint firstItem="uSh-Kc-8vf" firstAttribute="top" secondItem="zeN-Uu-Kw1" secondAttribute="bottom" constant="40" id="yii-9f-7oI"/>
+                                            <constraint firstItem="Vne-hV-fKT" firstAttribute="leading" secondItem="XaF-6e-OPJ" secondAttribute="leading" constant="20" id="zM8-au-7cr"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="XaF-6e-OPJ" firstAttribute="width" secondItem="G2Q-RE-CIQ" secondAttribute="width" id="LXq-um-rXc"/>
+                                    <constraint firstItem="XaF-6e-OPJ" firstAttribute="height" secondItem="G2Q-RE-CIQ" secondAttribute="height" priority="750" id="PCE-ae-y9r"/>
+                                    <constraint firstAttribute="bottom" secondItem="XaF-6e-OPJ" secondAttribute="bottom" id="bTA-6D-ZbZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="XaF-6e-OPJ" secondAttribute="trailing" id="bXJ-Te-J9m"/>
+                                    <constraint firstItem="XaF-6e-OPJ" firstAttribute="top" secondItem="G2Q-RE-CIQ" secondAttribute="top" id="fut-uN-Yrz"/>
+                                    <constraint firstItem="XaF-6e-OPJ" firstAttribute="leading" secondItem="G2Q-RE-CIQ" secondAttribute="leading" id="xZG-U1-8kv"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="G2Q-RE-CIQ" firstAttribute="top" secondItem="Ddb-YS-fU0" secondAttribute="top" id="ACf-33-eog"/>
+                            <constraint firstAttribute="trailing" secondItem="G2Q-RE-CIQ" secondAttribute="trailing" id="JKv-Vd-Cn4"/>
+                            <constraint firstItem="G2Q-RE-CIQ" firstAttribute="leading" secondItem="Ddb-YS-fU0" secondAttribute="leading" id="TiG-H8-J6A"/>
+                            <constraint firstAttribute="bottom" secondItem="G2Q-RE-CIQ" secondAttribute="bottom" id="cz6-9L-w7m"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vZh-3D-Oih"/>
+                    </view>
+                    <size key="freeformSize" width="414" height="1200"/>
+                    <connections>
+                        <outlet property="applicantName" destination="Xg5-dI-pJd" id="KbV-iT-CuB"/>
+                        <outlet property="fatherName" destination="QvQ-ql-ZhW" id="CFT-LQ-iFM"/>
+                        <outlet property="gender" destination="bXh-dZ-eBZ" id="36R-WB-ZY7"/>
+                        <outlet property="motherName" destination="XJ7-hY-2CO" id="795-iR-TR5"/>
+                        <outlet property="nominee" destination="vwd-rj-U4A" id="Tnv-dh-PCe"/>
+                        <outlet property="permanentAddress" destination="6Sa-Pt-og3" id="8xT-Lc-zxo"/>
+                        <outlet property="phoneNumber" destination="kRv-pT-Ml1" id="Sfy-za-eQC"/>
+                        <outlet property="presentAddress" destination="UhN-co-IxR" id="hb3-4j-FP4"/>
+                        <outlet property="profession" destination="BqH-aM-fLD" id="Ipq-mV-jwb"/>
+                        <outlet property="relation" destination="zeN-Uu-Kw1" id="1MX-MY-h0q"/>
+                        <outlet property="spouseName" destination="Vne-hV-fKT" id="ZEs-Cl-oeP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5QA-tf-r5W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1102.8985507246377" y="921.42857142857133"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="f0K-8h-HLn">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="gmT-Pw-Kna" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Bxb-Ma-DJE">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="RL2-JA-Xhl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p5k-X8-Qdd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="157.97101449275362" y="116.51785714285714"/>
         </scene>
     </scenes>
     <resources>
+        <image name="backBtn" width="50" height="50"/>
         <image name="camera" width="50" height="33"/>
         <image name="ic_camera_rear" width="24" height="24"/>
         <image name="ic_flash_off" width="24" height="24"/>

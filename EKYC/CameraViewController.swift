@@ -17,6 +17,7 @@ class CameraViewController: UIViewController {
     @IBOutlet weak var captureView: UIView!
     
     let cameraController = CameraController()
+    var photoDelegate: PassImage?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -98,10 +99,18 @@ class CameraViewController: UIViewController {
                 return
             }
 
-            try? PHPhotoLibrary.shared().performChangesAndWait {
-                PHAssetChangeRequest.creationRequestForAsset(from: image)
-            }
+//            try? PHPhotoLibrary.shared().performChangesAndWait {
+//                PHAssetChangeRequest.creationRequestForAsset(from: image)
+//            }
+            
+            self.photoDelegate?.passImage(image: image)
+            
             self.dismiss(animated: true, completion: nil)
         }
     }
+}
+
+
+protocol PassImage {
+    func passImage(image: UIImage)
 }
