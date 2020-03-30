@@ -18,6 +18,7 @@ class CameraViewController: UIViewController {
     
     let cameraController = CameraController()
     var photoDelegate: PassImage?
+    var frontCamera = false
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -61,6 +62,14 @@ class CameraViewController: UIViewController {
         configureCameraController()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+            if self.frontCamera {
+                self.cameraOptionSelector(UIButton())
+            }
+        }
+    }
+    
     @IBAction func flashSelector(_ sender: Any) {
         if cameraController.flashMode == .on {
             cameraController.flashMode = .off
@@ -82,10 +91,10 @@ class CameraViewController: UIViewController {
 
         switch cameraController.currentCameraPosition {
         case .some(.front):
-            flashButton.setImage(#imageLiteral(resourceName: "ic_camera_front"), for: .normal)
+            cameraOptionButton.setImage(#imageLiteral(resourceName: "ic_camera_front"), for: .normal)
 
         case .some(.rear):
-            flashButton.setImage(#imageLiteral(resourceName: "ic_camera_rear"), for: .normal)
+            cameraOptionButton.setImage(#imageLiteral(resourceName: "ic_camera_rear"), for: .normal)
 
         case .none:
             return

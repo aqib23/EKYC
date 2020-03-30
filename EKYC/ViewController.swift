@@ -30,7 +30,6 @@ class ViewController: UIViewController, PassImage {
         if #available(iOS 13.0, *) {
             overrideUserInterfaceStyle = .light
         }
-        self.pushToNidInfo(dict: [:])
     }
 
     func passImage(image: UIImage) {
@@ -46,19 +45,10 @@ class ViewController: UIViewController, PassImage {
         let urlString = "parse_nid"
         APIRequest.shared.uploadImage(requestType: .POST, queryString: urlString, parameter: parameters as [String : AnyObject], imageData: imgeData, isHudeShow: true, success: { (success) in
             print(success)
-            var dict: [String: Any] = [:]
-            if var str = success as? String {
-                str = str.replacingOccurrences(of: "\n", with: "")
-                str = str.replacingOccurrences(of: " ", with: "")
-                let d = self.convertToDictionary(text: str)
-                print(d ?? [])
-                let nidArr = str.components(separatedBy: ",")
-                for component in nidArr {
-                    let arr = component.components(separatedBy: ":")
-                    dict[arr[0]] = arr[1]
-                }
+            if let dict = success as? [String : Any] {
+                print(dict)
+                self.pushToNidInfo(dict: dict)
             }
-            self.pushToNidInfo(dict: dict)
         }) { (fail) in
             print("Failed to upload image")
         }

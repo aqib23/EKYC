@@ -7,6 +7,6 @@ target 'EKYC' do
 
   # Pods for EKYC
 	pod 'Alamofire', '~> 4.7'
-
+  pod 'IQKeyboardManagerSwift'
 
 end
