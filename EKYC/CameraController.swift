@@ -136,6 +136,10 @@ class CameraController: NSObject {
            self.previewLayer?.frame = view.frame
     }
     
+    func stopCameraSession(){
+        self.captureSession?.stopRunning()
+    }
+    
     func switchCameras() throws {
         
         //5

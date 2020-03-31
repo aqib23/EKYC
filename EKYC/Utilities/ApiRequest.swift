@@ -24,7 +24,7 @@ class APIRequest: NSObject {
     static let shared:APIRequest = APIRequest()
     
     //Upload Images
-    func uploadImage(requestType:RequestType,queryString:String?,parameter:[String:AnyObject]?,imageData:Data,isHudeShow:Bool,success:@escaping SUCCESS,fail:@escaping FAIL){
+    func uploadImage(requestType:RequestType,queryString:String?,parameter:[String:AnyObject]?,imagesData:[Data],isHudeShow:Bool,success:@escaping SUCCESS,fail:@escaping FAIL){
 //        guard CommonClass.shared.isConnectedToInternet else{
 //            ShowToast.newShow(toastMessage: kNoInternetError, backgroundColor: liveColor.liveRed, textColor: .white)
 //           // fail(["Error":kNoInternetError])
@@ -55,9 +55,9 @@ class APIRequest: NSObject {
                 multipartFormData.append("\(value)".data(using: String.Encoding.utf8)!, withName: key as String)
          }
          
-         // if let data = imageData{
-         multipartFormData.append(imageData, withName: "file", fileName: "file.jpg", mimeType: "file/jpg")
-         //}
+            for imageData in imagesData {
+                multipartFormData.append(imageData, withName: "file", fileName: "file.jpg", mimeType: "file/jpg")
+            }
          
          }, usingThreshold: UInt64.init(), to: urlString, method:HTTPMethod(rawValue:"\(requestType)")!, headers: headers) { (result) in
            
@@ -69,7 +69,12 @@ class APIRequest: NSObject {
             DispatchQueue.main.async {
                 ProgressHud.hide()
             }
-            success(response.value!)
+            
+            if let value = response.value {
+                success(value)
+            }else{
+                fail(["Error" : "Failed"])
+            }
             //success(String(data: response.data ?? Data(), encoding: .utf8)!)
             //}
             //catch{
@@ -226,6 +231,7 @@ class APIRequest: NSObject {
 //
 //                            fail(["error":kCommonError])
 //                        }
+                        fail(["error":"kCommonError"])
                     }
                 }else{
                     //ShowToast.show(toatMessage: kCommonError)

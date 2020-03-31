@@ -13,7 +13,10 @@ class OTPViewController: UIViewController {
     @IBOutlet weak var otpTextfield: TweeActiveTextField!
     
     var userDictionary: [String : Any]?
-    var otpCode = ""
+    var userInfoDictionary: [String : Any]?
+    var nidImages: [UIImage]?
+    var profilePicture: UIImage?
+    var otpCode = "1559"
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -44,6 +47,7 @@ class OTPViewController: UIViewController {
         }
         if otpCode == self.otpTextfield.text {
             print("OTP matched!!!!!")
+            self.pushToCongratulationViewController()
         }
     }
     
@@ -63,5 +67,16 @@ class OTPViewController: UIViewController {
         }
     }
     
-    
+    func pushToCongratulationViewController(){
+        DispatchQueue.main.async {
+            if let congratulationViewController: CongratulationViewController = self.storyboard?.instantiateViewController(withIdentifier: "CongratulationViewController") as? CongratulationViewController{
+               
+                congratulationViewController.userDictionary = self.userDictionary
+                congratulationViewController.userInfoDictionary = self.userInfoDictionary
+                congratulationViewController.nidImages = self.nidImages
+                congratulationViewController.profilePicture = self.profilePicture
+                self.navigationController?.pushViewController(congratulationViewController, animated: false)
+            }
+        }
+    }
 }

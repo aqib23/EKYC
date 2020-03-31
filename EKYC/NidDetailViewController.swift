@@ -24,6 +24,8 @@ class NidDetailViewController: UIViewController, UITextFieldDelegate {
     
     
     var userDictionary: [String : Any]?
+    var nidImages: [UIImage]?
+    var userInfoDictionary: [String : Any] = [:]
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -65,7 +67,7 @@ class NidDetailViewController: UIViewController, UITextFieldDelegate {
     }
     
     func postUserInfo(){
-        let parameter: [String : Any] = ["nid" : self.userDictionary?["nid"] ?? "",
+        self.userInfoDictionary = ["nid" : self.userDictionary?["nid"] ?? "",
                                          "dob" : self.userDictionary?["dob"] ?? "",
                                          "name" : self.applicantName.text ?? "",
                                          "bengali_name" : self.userDictionary?["bengali_name"] ?? "",
@@ -74,13 +76,13 @@ class NidDetailViewController: UIViewController, UITextFieldDelegate {
                                          "spouse_name" : self.spouseName.text ?? "",
                                          "gender" : self.gender.text ?? "",
                                          "profession" : self.profession.text ?? "",
-                                         " mobile" : self.phoneNumber.text ?? "",
+                                         "mobile" : self.phoneNumber.text ?? "",
                                          "present_address" : self.presentAddress.text ?? "",
                                          "permanent_address" : self.permanentAddress.text ?? "",
                                          "Nominee" : self.nominee.text ?? "" ,
                                          "Relation" : self.relation.text ?? ""]
         
-        APIRequest.shared.sendRequest(requestType: .POST, queryString: "insert_nid_info", parameter: parameter as [String : AnyObject], isHudeShow: true, success: { (success) in
+        APIRequest.shared.sendRequest(requestType: .POST, queryString: "insert_nid_info", parameter: self.userInfoDictionary as [String : AnyObject], isHudeShow: true, success: { (success) in
             if let dict = success as? [String : Any] {
                 if let status = dict["status"] as? Bool {
                     if status {
@@ -101,6 +103,8 @@ class NidDetailViewController: UIViewController, UITextFieldDelegate {
             if let profilePictureViewController: ProfilePictureViewController = self.storyboard?.instantiateViewController(withIdentifier: "ProfilePictureViewController") as? ProfilePictureViewController{
                
                 profilePictureViewController.userDictionary = self.userDictionary
+                profilePictureViewController.nidImages = self.nidImages
+                profilePictureViewController.userInfoDictionary = self.userInfoDictionary
                 self.navigationController?.pushViewController(profilePictureViewController, animated: false)
             }
         }

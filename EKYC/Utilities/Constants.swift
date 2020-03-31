@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-let baseUrl = "http://35.240.221.96:6000/"//"https://mockekyc.free.beeceptor.com/"
+let baseUrl = /*"http://35.240.221.96:6000/"//p*/"https://mockekyc.free.beeceptor.com/"
 
 typealias SUCCESS = (_ response:Any)->()
 typealias FAIL = (_ response:Any)->()

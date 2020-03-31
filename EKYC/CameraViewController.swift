@@ -113,7 +113,7 @@ class CameraViewController: UIViewController {
 //            }
             
             self.photoDelegate?.passImage(image: image)
-            
+            self.cameraController.stopCameraSession()
             self.dismiss(animated: true, completion: nil)
         }
     }
