@@ -12,8 +12,8 @@ class ViewController: UIViewController, PassImage {
 
     @IBOutlet weak var uploadButton: UIButton!
     
-    var nidFrontImage: UIImage?
-    var nidBackImage: UIImage?
+    var nidFrontImage: UIImage = UIImage(named: "EKYC_logo")!
+    var nidBackImage: UIImage = UIImage(named: "EKYC_logo")!
     var frontSegue = false
     var backSegue = false
     
@@ -35,6 +35,7 @@ class ViewController: UIViewController, PassImage {
         if #available(iOS 13.0, *) {
             overrideUserInterfaceStyle = .light
         }
+        self.passImage(image: self.nidBackImage)
     }
 
     func passImage(image: UIImage) {
@@ -43,18 +44,17 @@ class ViewController: UIViewController, PassImage {
         }else if self.backSegue {
             self.nidBackImage = image
         }
-        if self.nidFrontImage != nil , self.nidBackImage != nil {
+        //if self.nidFrontImage != nil , self.nidBackImage != nil {
             DispatchQueue.main.async {
                 self.uploadButton.backgroundColor = UIColor(red: 86.0/255.0, green: 199.0/255.0, blue: 240.0/255.0, alpha: 1.0)
                 self.uploadButton.isUserInteractionEnabled = true
             }
-        }
+        //}
     }
     
     func uploadNid(){
-        guard let frontImage = self.nidFrontImage, let backImage = self.nidBackImage else {
-            return
-        }
+        let frontImage = self.nidFrontImage
+        let backImage = self.nidBackImage
         
         let parameters = [
             "file_name1": "frontNIDImage",
@@ -80,7 +80,7 @@ class ViewController: UIViewController, PassImage {
             if let nidDetailViewController: NidDetailViewController = self.storyboard?.instantiateViewController(withIdentifier: "NidDetailViewController") as? NidDetailViewController{
                
                     nidDetailViewController.userDictionary = dict
-                nidDetailViewController.nidImages = [self.nidFrontImage!,self.nidBackImage!]
+                nidDetailViewController.nidImages = [self.nidFrontImage,self.nidBackImage]
                 self.navigationController?.pushViewController(nidDetailViewController, animated: false)
             }
         }

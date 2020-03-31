@@ -37,6 +37,7 @@ class ProfilePictureViewController: UIViewController, PassImage {
             overrideUserInterfaceStyle = .light
         }
         self.profilePic.layer.cornerRadius = 100
+        self.profilePicture = self.profilePic.image
     }
     
     

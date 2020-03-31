@@ -839,6 +839,7 @@
                             <constraint firstItem="bAw-wB-nlL" firstAttribute="centerX" secondItem="XYl-t0-VF9" secondAttribute="centerX" id="ieK-Ka-caM"/>
                             <constraint firstItem="bAw-wB-nlL" firstAttribute="top" secondItem="XYl-t0-VF9" secondAttribute="top" constant="20" symbolic="YES" id="qeb-FN-IP2"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="Slh-xp-m4a"/>
                     </view>
                     <size key="freeformSize" width="414" height="1175"/>
                     <connections>
