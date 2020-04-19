@@ -137,6 +137,10 @@ class APIRequest: NSObject {
                     ProgressHud.show()
                 }
             }
+            if(queryString == "generate_otp"){
+                baseUrl = baseUrl1
+            }
+            
             let urlString = baseUrl + (queryString == nil ? "" : queryString!)
     //        DispatchQueue.main.async {
     //            ShowToast.show(toatMessage: "\(urlString)")

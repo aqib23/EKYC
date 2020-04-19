@@ -9,7 +9,16 @@
 import Foundation
 import UIKit
 
-let baseUrl = /*"http://35.240.221.96:6000/"//p*/"https://mockekyc.free.beeceptor.com/"
+var baseUrl1 =  "http://35.240.221.96:6000/"
+var baseUrl = "https://mockekyc.free.beeceptor.com/"
+
+
+let parse_nid          = "parse_nid"
+let facce_verification = "facce_verification"
+let insert_nid_info    = "insert_nid_info"
+let verify_nid_data    = "verify_nid_data"
+let generate_otp       = "generate_otp"
+
 
 typealias SUCCESS = (_ response:Any)->()
 typealias FAIL = (_ response:Any)->()

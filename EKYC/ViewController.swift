@@ -16,6 +16,7 @@ class ViewController: UIViewController, PassImage {
     var nidBackImage: UIImage = UIImage(named: "EKYC_logo")!
     var frontSegue = false
     var backSegue = false
+    var otpCode = "1558"
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -36,7 +37,27 @@ class ViewController: UIViewController, PassImage {
             overrideUserInterfaceStyle = .light
         }
         self.passImage(image: self.nidBackImage)
+        
+       // getOTpCode()
+        
     }
+    
+    func getOTpCode() {
+           let urlString = "generate_otp"
+           
+           let parameter: [String : Any] = ["nid" :  "199212345672"]
+           
+           APIRequest.shared.sendRequest(requestType: .POST, queryString: urlString, parameter: parameter as [String : AnyObject], isHudeShow: true, success: { (success) in
+               print(success)
+               if let dict = success as? [String : Any] {
+                   self.otpCode = dict["otp"] as! String
+               }
+           }) { (fail) in
+               print(fail)
+           }
+       }
+    
+    
 
     func passImage(image: UIImage) {
         if self.frontSegue {

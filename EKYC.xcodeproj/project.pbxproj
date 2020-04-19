@@ -98,6 +98,7 @@
 		6C66B999242B582C00A97D36 /* EKYC */ = {
 			isa = PBXGroup;
 			children = (
+				6C959959242E302400ECF79E /* Utilities */,
 				6C66B99A242B582C00A97D36 /* AppDelegate.swift */,
 				6C66B99C242B582C00A97D36 /* SceneDelegate.swift */,
 				6C66B99E242B582C00A97D36 /* ViewController.swift */,
@@ -111,7 +112,6 @@
 				6C66B9A3242B582D00A97D36 /* Assets.xcassets */,
 				6C66B9A5242B582D00A97D36 /* LaunchScreen.storyboard */,
 				6C66B9A8242B582D00A97D36 /* Info.plist */,
-				6C959959242E302400ECF79E /* Utilities */,
 			);
 			path = EKYC;
 			sourceTree = "<group>";
@@ -421,16 +421,18 @@
 			baseConfigurationReference = 54B41E7F8086A4C0AB368683 /* Pods-EKYC.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F957HC2JHT;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = MG2L3YQ533;
 				INFOPLIST_FILE = EKYC/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bs23.ios.EKYC;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bs-23.JossPayWallet";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "BrainStation Team Wildcard";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -441,6 +443,7 @@
 			baseConfigurationReference = DBC143208609A41FF8855AAD /* Pods-EKYC.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Raisul Kabir (M6ZE95VW75)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F957HC2JHT;
 				INFOPLIST_FILE = EKYC/Info.plist;

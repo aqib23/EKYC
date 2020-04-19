@@ -79,4 +79,13 @@ class OTPViewController: UIViewController {
             }
         }
     }
+    
+    
+    @IBAction func backButtonAction(_ sender: Any) {
+        //self.getOTpCode()
+    }
+    
+    
+    
+    
 }
