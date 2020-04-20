@@ -9,8 +9,9 @@
 import Foundation
 import UIKit
 
+var baseUrl =  "http://35.240.221.96:6000/"
 var baseUrl1 =  "http://35.240.221.96:6000/"
-var baseUrl = "https://mockekyc.free.beeceptor.com/"
+//var baseUrl1 = "https://mockekyc.free.beeceptor.com/"  //use this url for image
 
 
 let parse_nid          = "parse_nid"

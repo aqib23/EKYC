@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, PassImage {
+class ViewController: UIViewController, PassImage ,UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
     @IBOutlet weak var uploadButton: UIButton!
     
@@ -17,6 +17,8 @@ class ViewController: UIViewController, PassImage {
     var frontSegue = false
     var backSegue = false
     var otpCode = "1558"
+    var imag = 1
+     var imagePicker = UIImagePickerController()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -38,25 +40,13 @@ class ViewController: UIViewController, PassImage {
         }
         self.passImage(image: self.nidBackImage)
         
-       // getOTpCode()
+      
         
     }
     
-    func getOTpCode() {
-           let urlString = "generate_otp"
-           
-           let parameter: [String : Any] = ["nid" :  "199212345672"]
-           
-           APIRequest.shared.sendRequest(requestType: .POST, queryString: urlString, parameter: parameter as [String : AnyObject], isHudeShow: true, success: { (success) in
-               print(success)
-               if let dict = success as? [String : Any] {
-                   self.otpCode = dict["otp"] as! String
-               }
-           }) { (fail) in
-               print(fail)
-           }
-       }
     
+    
+ 
     
 
     func passImage(image: UIImage) {
@@ -82,7 +72,7 @@ class ViewController: UIViewController, PassImage {
             "file_name2": "backNIDImage"
         ]
         
-        let imagesData: [Data] = [frontImage.jpegData(compressionQuality: 0.5)!, backImage.jpegData(compressionQuality: 0.5)!]
+        let imagesData: [Data] = [frontImage.jpegData(compressionQuality: 0.1)!, backImage.jpegData(compressionQuality: 0.1)!]
         
         let urlString = "parse_nid"
         APIRequest.shared.uploadImage(requestType: .POST, queryString: urlString, parameter: parameters as [String : AnyObject], imagesData: imagesData, isHudeShow: true, success: { (success) in
@@ -137,5 +127,48 @@ class ViewController: UIViewController, PassImage {
     @IBAction func uploadButtonSelector(_ sender: Any) {
         self.uploadNid()
     }
+    
+    @IBAction func firstPhoto(_ sender: Any) {
+        imag = 1
+        fromGallery()
+    }
+    
+    
+    @IBAction func secondPhoto(_ sender: Any) {
+        imag = 2
+        fromGallery()
+    }
+    
+    func fromGallery() {
+        imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
+        imagePicker.allowsEditing = true
+        imagePicker.delegate = self
+        self.present(imagePicker, animated: true, completion: nil)
+        
+    }
+    
+    
+    // MARK: - UIImagePickerControllerDelegate
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        if(imag == 1){
+            self.nidFrontImage = image
+        }else {
+            self.nidBackImage = image
+        }
+        
+        DispatchQueue.main.async {
+            self.uploadButton.backgroundColor = UIColor(red: 86.0/255.0, green: 199.0/255.0, blue: 240.0/255.0, alpha: 1.0)
+            self.uploadButton.isUserInteractionEnabled = true
+        }
+        
+        
+         
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
     
 }

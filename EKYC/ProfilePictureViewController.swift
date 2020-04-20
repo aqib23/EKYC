@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfilePictureViewController: UIViewController, PassImage {
+class ProfilePictureViewController: UIViewController, PassImage,UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     @IBOutlet weak var profilePic: UIImageView!
     
@@ -16,6 +16,10 @@ class ProfilePictureViewController: UIViewController, PassImage {
     var userInfoDictionary: [String : Any]?
     var nidImages: [UIImage]?
     var profilePicture: UIImage?
+    
+    
+    
+    var imagePicker = UIImagePickerController()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -55,6 +59,35 @@ class ProfilePictureViewController: UIViewController, PassImage {
             self.uploadProfilePic(imgeData: (image.jpegData(compressionQuality: 0.5))!, imageName: "image")
         }
     }
+    
+    
+    @IBAction func fromGallery(_ sender: Any) {
+        
+        
+        
+        imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
+        imagePicker.allowsEditing = true
+        imagePicker.delegate = self
+        self.present(imagePicker, animated: true, completion: nil)
+        
+    }
+    
+    // MARK: - UIImagePickerControllerDelegate
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        DispatchQueue.main.async {
+            self.profilePic.image = image
+            self.profilePicture = image
+            self.uploadProfilePic(imgeData: (image.jpegData(compressionQuality: 0.001))!, imageName: "image")
+        }
+        
+        
+         
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
     
     func uploadProfilePic(imgeData: Data, imageName: String){
         let parameters = [

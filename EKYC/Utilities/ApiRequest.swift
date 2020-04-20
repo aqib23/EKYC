@@ -35,7 +35,7 @@ class APIRequest: NSObject {
                 ProgressHud.show()
             }
         }
-        let urlString = baseUrl + (queryString == nil ? "" : queryString!)
+        let urlString = baseUrl1 + (queryString == nil ? "" : queryString!)
      
         
          //let URL = "http://staging.live.stockholmapplab.com/api/amazons3/native/experience/image/upload/image"
@@ -137,9 +137,9 @@ class APIRequest: NSObject {
                     ProgressHud.show()
                 }
             }
-            if(queryString == "generate_otp"){
-                baseUrl = baseUrl1
-            }
+//            if(queryString == "generate_otp"){
+//                baseUrl = baseUrl1
+//            }
             
             let urlString = baseUrl + (queryString == nil ? "" : queryString!)
     //        DispatchQueue.main.async {

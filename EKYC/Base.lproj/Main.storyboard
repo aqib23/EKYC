@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -62,6 +62,22 @@
                                     <action selector="uploadButtonSelector:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lcg-mQ-3rL"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ffb-Wm-psP">
+                                <rect key="frame" x="148" y="393" width="118" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="From Gallery"/>
+                                <connections>
+                                    <action selector="firstPhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sQf-yl-jPc"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l3n-yg-dh8">
+                                <rect key="frame" x="139" y="475" width="118" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="From Gallery"/>
+                                <connections>
+                                    <action selector="secondPhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mbC-EC-utZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -90,7 +106,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="957" y="117"/>
+            <point key="canvasLocation" x="956.52173913043487" y="116.51785714285714"/>
         </scene>
         <!--Camera View Controller-->
         <scene sceneID="o9a-gu-7EI">
@@ -894,6 +910,14 @@
                                     <constraint firstAttribute="height" constant="200" id="tQq-Z6-SNz"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="laf-ow-zXb">
+                                <rect key="frame" x="107" y="515" width="200" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="From Gallery"/>
+                                <connections>
+                                    <action selector="fromGallery:" destination="fSq-6q-Lxn" eventType="touchUpInside" id="Oe3-Ye-SQ2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -914,7 +938,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JhF-Nr-bL4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2567" y="102"/>
+            <point key="canvasLocation" x="2566.666666666667" y="101.78571428571428"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="dAW-m5-uqs">
@@ -1016,7 +1040,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Wyn-5k-FYf"/>
+        <segue reference="7pr-E9-PXD"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="backBtn" width="50" height="50"/>
